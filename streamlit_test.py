@@ -72,5 +72,6 @@ st.write("This information is for educational purposes only. Please consult a he
 
 
 
+#if you are reading then then you owe me a huggie ASAP and tell me im a pretty princess
 
 #openAI key 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

@@ -23,14 +23,6 @@ if submit_button:
 st.subheader("Recorded Feelings")
 st.write(feelings_data)
 
-# Visualize feelings over time using a line chart
-if not feelings_data.empty:
-    fig = px.line(feelings_data, x="Date", y="Feeling", title="Feeling Over Time")
-    st.plotly_chart(fig)
-else:
-    st.warning("No feelings recorded yet.")
-
-
 # Medication data
 medications = {
     "Medication 1": {

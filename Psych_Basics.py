@@ -2,22 +2,23 @@ import streamlit as st
 
 # Create a function to display information for Mental Health Conditions
 def display_mental_health_conditions():
-    st.subheader("Mental Health Conditions")
+    st.title("Mental Health Conditions")
+    st.subheader("Choose a Category")
     
-    # Define the list of common mental health conditions
-    mental_health_conditions = ["Mood Disorders", "Personality Disorders"]
+    # Define the list of mental health condition categories
+    mental_health_condition_categories = ["Mood Disorders", "Personality Disorders"]
     
-    # Create a dropdown to select a mental health condition category
-    selected_condition_category = st.selectbox("Select a Mental Health Condition Category", mental_health_conditions)
+    # Create a radio button to select a mental health condition category
+    selected_category = st.radio("Select a Category", mental_health_condition_categories)
     
-    if selected_condition_category == "Mood Disorders":
+    if selected_category == "Mood Disorders":
         display_mood_disorders()
-    elif selected_condition_category == "Personality Disorders":
+    elif selected_category == "Personality Disorders":
         display_personality_disorders()
 
 # Create a function to display information for Mood Disorders
 def display_mood_disorders():
-    st.subheader("Mood Disorders")
+    st.title("Mood Disorders")
     
     # Define the list of common mood disorders
     mood_disorders = ["Depression", "Anxiety", "Bipolar Disorder", "Dysthymia", "Cyclothymic Disorder"]
@@ -36,7 +37,7 @@ def display_mood_disorders():
 
 # Create a function to display information for Personality Disorders
 def display_personality_disorders():
-    st.subheader("Personality Disorders")
+    st.title("Personality Disorders")
     
     # Define the list of common personality disorders
     personality_disorders = ["Borderline Personality Disorder", "Narcissistic Personality Disorder", "Antisocial Personality Disorder", "Obsessive-Compulsive Personality Disorder", "Avoidant Personality Disorder"]
@@ -50,59 +51,6 @@ def display_personality_disorders():
     elif selected_personality_disorder == "Narcissistic Personality Disorder":
         explanation = "Narcissistic Personality Disorder involves a pattern of grandiosity, a need for admiration, and a lack of empathy for others. Individuals with this disorder often have an inflated sense of self-importance."
     # Add more personality disorders and explanations here
-    
-    st.write(explanation)
-
-# Create a function to display information for Psychiatry Medications
-def display_psychiatry_medications():
-    st.subheader("Psychiatry Medications")
-    
-    # Define the list of common psychiatry medication categories
-    psychiatry_medications = ["Antidepressants", "Antipsychotics"]
-    
-    # Create a dropdown to select a psychiatry medication category
-    selected_medication_category = st.selectbox("Select a Psychiatry Medication Category", psychiatry_medications)
-    
-    if selected_medication_category == "Antidepressants":
-        display_antidepressants()
-    elif selected_medication_category == "Antipsychotics":
-        display_antipsychotics()
-
-# Create a function to display information for Antidepressant Medications
-def display_antidepressants():
-    st.subheader("Antidepressant Medications")
-    
-    # Define the list of common antidepressant medications
-    antidepressants = ["Prozac (Fluoxetine)", "Zoloft (Sertraline)", "Lexapro (Escitalopram)", "Paxil (Paroxetine)", "Celexa (Citalopram)"]
-    
-    # Create a dropdown to select an antidepressant medication
-    selected_antidepressant = st.selectbox("Select an Antidepressant Medication", antidepressants)
-    
-    # Use ChatGPT to generate an explanation for the selected antidepressant
-    if selected_antidepressant == "Prozac (Fluoxetine)":
-        explanation = "Prozac is an antidepressant medication commonly used to treat depression, anxiety, and obsessive-compulsive disorder (OCD). It works by increasing serotonin levels in the brain."
-    elif selected_antidepressant == "Zoloft (Sertraline)":
-        explanation = "Zoloft is an antidepressant medication used to treat depression, panic disorder, and social anxiety disorder. It helps balance serotonin levels in the brain."
-    # Add more antidepressants and explanations here
-    
-    st.write(explanation)
-
-# Create a function to display information for Antipsychotic Medications
-def display_antipsychotics():
-    st.subheader("Antipsychotic Medications")
-    
-    # Define the list of common antipsychotic medications
-    antipsychotics = ["Risperdal (Risperidone)", "Abilify (Aripiprazole)", "Zyprexa (Olanzapine)", "Seroquel (Quetiapine)", "Haldol (Haloperidol)"]
-    
-    # Create a dropdown to select an antipsychotic medication
-    selected_antipsychotic = st.selectbox("Select an Antipsychotic Medication", antipsychotics)
-    
-    # Use ChatGPT to generate an explanation for the selected antipsychotic
-    if selected_antipsychotic == "Risperdal (Risperidone)":
-        explanation = "Risperdal is an antipsychotic medication used to treat schizophrenia and bipolar disorder. It helps regulate dopamine levels in the brain."
-    elif selected_antipsychotic == "Abilify (Aripiprazole)":
-        explanation = "Abilify is an antipsychotic medication used to treat schizophrenia and bipolar disorder. It works by modulating dopamine and serotonin levels."
-    # Add more antipsychotics and explanations here
     
     st.write(explanation)
 

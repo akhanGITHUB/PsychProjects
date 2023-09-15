@@ -3,17 +3,11 @@ import streamlit as st
 # Create a function to display information for Mental Health Conditions
 def display_mental_health_conditions():
     st.title("Mental Health Conditions")
-    st.subheader("Choose a Category")
     
-    # Define the list of mental health condition categories
-    mental_health_condition_categories = ["Mood Disorders", "Personality Disorders"]
-    
-    # Create a radio button to select a mental health condition category
-    selected_category = st.radio("Select a Category", mental_health_condition_categories)
-    
-    if selected_category == "Mood Disorders":
+    # Display buttons to choose between Mood Disorders and Personality Disorders
+    if st.button("Mood Disorders"):
         display_mood_disorders()
-    elif selected_category == "Personality Disorders":
+    if st.button("Personality Disorders"):
         display_personality_disorders()
 
 # Create a function to display information for Mood Disorders

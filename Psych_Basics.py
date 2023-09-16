@@ -1,69 +1,46 @@
 import streamlit as st
 
-# Create a function to display information for Mental Health Conditions
-def display_mental_health_conditions():
-    st.sidebar.title("Mental Health Conditions")
-    
-    # Define the list of mental health condition categories
-    mental_health_condition_categories = ["Mood Disorders", "Personality Disorders"]
-    
-    # Create a radio button to select a mental health condition category
-    selected_category = st.sidebar.radio("Select a Mental Health Condition Category", mental_health_condition_categories)
-    
-    if selected_category == "Mood Disorders":
-        display_mood_disorders()
-    elif selected_category == "Personality Disorders":
-        display_personality_disorders()
+# Define a dictionary with mental health conditions and their descriptions
+mental_health_conditions = {
+    "Mood Disorders": {
+        "Depression": "A mood disorder characterized by persistent sadness and loss of interest in activities.",
+        "Bipolar Disorder": "A mood disorder characterized by extreme mood swings, including mania and depression.",
+    },
+    "Personality Disorders": {
+        "Borderline Personality Disorder": "A personality disorder characterized by unstable moods, relationships, and self-image.",
+        "Narcissistic Personality Disorder": "A personality disorder characterized by an inflated sense of self-importance and lack of empathy for others.",
+    },
+}
 
-# Create a function to display information for Mood Disorders
-def display_mood_disorders():
-    st.title("Mood Disorders")
-    
-    # Define the list of common mood disorders
-    mood_disorders = ["Depression", "Anxiety", "Bipolar Disorder", "Dysthymia", "Cyclothymic Disorder"]
-    
-    # Create a dropdown to select a mood disorder
-    selected_mood_disorder = st.selectbox("Select a Mood Disorder", mood_disorders)
-    
-    # Use ChatGPT to generate an explanation for the selected mood disorder
-    if selected_mood_disorder == "Depression":
-        explanation = "Depression is a mood disorder characterized by persistent feelings of sadness, hopelessness, and a lack of interest or pleasure in daily activities."
-    elif selected_mood_disorder == "Anxiety":
-        explanation = "Anxiety is a condition where a person experiences excessive worry, fear, or nervousness. It can lead to physical symptoms like rapid heartbeat and sweating."
-    # Add more mood disorders and explanations here
-    
-    st.write(explanation)
+# Define a dictionary with psychiatry medications and their descriptions
+psychiatry_medications = {
+    "Antidepressants": {
+        "SSRIs (e.g., Prozac)": "SSRIs are a type of antidepressant that helps increase serotonin levels in the brain.",
+        "SNRIs (e.g., Effexor)": "SNRIs are similar to SSRIs and also increase norepinephrine levels.",
+    },
+    "Antipsychotics": {
+        "Risperidone": "An antipsychotic used to treat schizophrenia and bipolar disorder.",
+        "Quetiapine": "An antipsychotic used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
+    },
+}
 
-# Create a function to display information for Personality Disorders
-def display_personality_disorders():
-    st.title("Personality Disorders")
-    
-    # Define the list of common personality disorders
-    personality_disorders = ["Borderline Personality Disorder", "Narcissistic Personality Disorder", "Antisocial Personality Disorder", "Obsessive-Compulsive Personality Disorder", "Avoidant Personality Disorder"]
-    
-    # Create a dropdown to select a personality disorder
-    selected_personality_disorder = st.selectbox("Select a Personality Disorder", personality_disorders)
-    
-    # Use ChatGPT to generate an explanation for the selected personality disorder
-    if selected_personality_disorder == "Borderline Personality Disorder":
-        explanation = "Borderline Personality Disorder is a condition characterized by unstable relationships, self-image, and emotions. People with this disorder may have intense mood swings and difficulty regulating their emotions."
-    elif selected_personality_disorder == "Narcissistic Personality Disorder":
-        explanation = "Narcissistic Personality Disorder involves a pattern of grandiosity, a need for admiration, and a lack of empathy for others. Individuals with this disorder often have an inflated sense of self-importance."
-    # Add more personality disorders and explanations here
-    
-    st.write(explanation)
+# Streamlit UI
+st.title("Mental Health Information App")
 
-# Create a function to display information for Psychiatry Medications
-def display_psychiatry_medications():
-    st.sidebar.title("Psychiatry Medications")
-    
-    # Define the list of common psychiatry medication categories
-    psychiatry_medications = ["Antidepressants", "Antipsychotics"]
-    
-    # Create a radio button to select a psychiatry medication category
-    selected_medication_category = st.sidebar.radio("Select a Psychiatry Medication Category", psychiatry_medications)
-    
-    if selected_medication_category == "Antidepressants":
-        display_antidepressants()
-    elif selected_medication_category == "Antipsychotics":
-        display_antipsychotics()
+# Sidebar navigation
+selected_category = st.sidebar.selectbox("Choose a Category", ["Home", "Mental Health Conditions", "Psychiatry Medications"])
+
+if selected_category == "Home":
+    st.write("Welcome to the Mental Health Information App!")
+
+elif selected_category == "Mental Health Conditions":
+    sub_category = st.sidebar.selectbox("Choose a Sub-Category", list(mental_health_conditions.keys()))
+    sub_sub_category = st.sidebar.selectbox("Choose a Disorder", list(mental_health_conditions[sub_category].keys()))
+    disorder_description = mental_health_conditions[sub_category][sub_sub_category]
+    st.write(f"**{sub_sub_category}**: {disorder_description}")
+
+elif selected_category == "Psychiatry Medications":
+    medication_category = st.sidebar.selectbox("Choose a Medication Category", list(psychiatry_medications.keys()))
+    selected_medication = st.sidebar.selectbox("Choose a Medication", list(psychiatry_medications[medication_category].keys()))
+    medication_description = psychiatry_medications[medication_category][selected_medication]
+    st.write(f"**{selected_medication}**: {medication_description}")

@@ -35,12 +35,16 @@ if selected_category == "Home":
 
 elif selected_category == "Mental Health Conditions":
     sub_category = st.sidebar.selectbox("Choose a Sub-Category", list(mental_health_conditions.keys()))
-    sub_sub_category = st.sidebar.selectbox("Choose a Disorder", list(mental_health_conditions[sub_category].keys()))
-    disorder_description = mental_health_conditions[sub_category][sub_sub_category]
-    st.write(f"**{sub_sub_category}**: {disorder_description}")
+
+    # Display disorders in a dropdown list on the main page
+    selected_disorder = st.selectbox(f"Choose a {sub_category} Disorder", list(mental_health_conditions[sub_category].keys()))
+    disorder_description = mental_health_conditions[sub_category][selected_disorder]
+    st.write(f"**{selected_disorder}**: {disorder_description}")
 
 elif selected_category == "Psychiatry Medications":
     medication_category = st.sidebar.selectbox("Choose a Medication Category", list(psychiatry_medications.keys()))
-    selected_medication = st.sidebar.selectbox("Choose a Medication", list(psychiatry_medications[medication_category].keys()))
+
+    # Display medications in a dropdown list on the main page
+    selected_medication = st.selectbox(f"Choose a {medication_category} Medication", list(psychiatry_medications[medication_category].keys()))
     medication_description = psychiatry_medications[medication_category][selected_medication]
     st.write(f"**{selected_medication}**: {medication_description}")

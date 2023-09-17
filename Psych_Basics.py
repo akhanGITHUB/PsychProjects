@@ -3,16 +3,16 @@ import streamlit as st
 # Define a dictionary with mental health conditions and their descriptions
 mental_health_conditions = {
     "Mood Disorders": {
-        "Depression": "A mood disorder characterized by persistent sadness and loss of interest in activities.",
-        "Bipolar Disorder": "A mood disorder characterized by extreme mood swings, including mania and depression.",
+        "Major Depressive Disorder": "A mood disorder characterized by persistent and deep feelings of sadness and a loss of interest or pleasure in daily activities. People with MDD may also experience changes in sleep and appetite, low energy, difficulty concentrating, and even thoughts of death or suicide. MDD is treatable through therapy, medication, or a combination of both, and seeking help from a mental health professional is crucial for effective management and recovery.",
+        "Bipolar Disorder": "A mood disorder characterized by extreme mood swings, including periods of intense happiness and high energy (mania) and periods of deep sadness and low energy (depression). During manic episodes, individuals may feel overly confident and engage in risky behaviors, while depressive episodes involve persistent sadness and loss of interest. Management options often include mood-stabilizing medications and psychotherapy, which can help individuals balance their moods and lead more stable lives.",
+        "Seasonal Affective Disorder": "A mood disorder that typically occurs seasonally, most commonly during the fall and winter months when there's less natural sunlight. People with SAD experience symptoms like persistent sadness, low energy, and changes in sleep and appetite. Light therapy, psychotherapy, and lifestyle adjustments, such as spending more time outdoors or using lightboxes, can help alleviate symptoms and improve mood during the darker months.",
+        "Persistent Depressive Disorder (Dysthymia)": "A long-lasting form of depression where individuals experience chronic, low-level depressive symptoms for two years or more. These symptoms include persistent feelings of sadness, low energy, changes in appetite or sleep, and a general sense of hopelessness. Treatment options often include psychotherapy and sometimes medication, which can help manage symptoms and improve overall well-being over time.",
     },
-    "Personality Disorders": {
-        "Borderline Personality Disorder": "A personality disorder characterized by unstable moods, relationships, and self-image.",
-        "Narcissistic Personality Disorder": "A personality disorder characterized by an inflated sense of self-importance and lack of empathy for others.",
-    },
-     "Anxiety Disorders": {
-        "Generalized Anxiety Disorder": "An anxiety disorder characterized by excessive and uncontrollable worry about various aspects of life.",
-        "Social Anxiety Disorder": "An anxiety disorder characterized by intense fear of social situations and scrutiny by others.",
+    "Anxiety Disorders": {
+        "Generalized Anxiety Disorder": "An anxiety disorder characterized by excessive and persistent worry about various aspects of life, like health, work, or relationships, even when there's no clear reason for concern. People with GAD often experience physical symptoms like restlessness, muscle tension, and difficulty concentrating. Effective management options include therapy, such as cognitive-behavioral therapy (CBT), and antidepressant medication, which can help individuals learn to cope with their worries and reduce anxiety.",
+        "Social Anxiety Disorder": "Also known as Social Phobia, it is a common anxiety disorder marked by intense fear and avoidance of social situations due to a deep-seated fear of judgment or embarrassment by others. People with this disorder often feel extremely self-conscious and may worry about being scrutinized or humiliated in social settings. Effective treatment options include therapy, particularly cognitive-behavioral therapy (CBT), and in some cases, medication, which can help individuals build confidence and ease their social fears over time.",
+        "Panic Disorder": "An anxiety disorder characterized by recurring and unexpected panic attacks, which are sudden and intense surges of fear or discomfort. These attacks often come out of the blue and may be accompanied by physical symptoms like a racing heart, shortness of breath, trembling, and sweating. Treatment options typically include therapy, such as cognitive-behavioral therapy (CBT), and antidepressant medication, which can help individuals learn to manage and reduce the frequency and intensity of panic attacks.",
+        
     },
 }
 

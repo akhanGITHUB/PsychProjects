@@ -10,6 +10,10 @@ mental_health_conditions = {
         "Borderline Personality Disorder": "A personality disorder characterized by unstable moods, relationships, and self-image.",
         "Narcissistic Personality Disorder": "A personality disorder characterized by an inflated sense of self-importance and lack of empathy for others.",
     },
+     "Anxiety Disorders": {
+        "Generalized Anxiety Disorder": "An anxiety disorder characterized by excessive and uncontrollable worry about various aspects of life.",
+        "Social Anxiety Disorder": "An anxiety disorder characterized by intense fear of social situations and scrutiny by others.",
+    },
 }
 
 # Define a dictionary with psychiatry medications and their descriptions
@@ -34,17 +38,17 @@ if selected_category == "Home":
     st.write("Welcome to the Mental Health Information App!")
 
 elif selected_category == "Mental Health Conditions":
-    sub_category = st.sidebar.selectbox("Choose a Sub-Category", list(mental_health_conditions.keys()))
+    sub_category = st.sidebar.selectbox("Choose a mental health condition", list(mental_health_conditions.keys()))
 
     # Display disorders in a dropdown list on the main page
-    selected_disorder = st.selectbox(f"Choose a {sub_category} Disorder", list(mental_health_conditions[sub_category].keys()))
+    selected_disorder = st.selectbox(f"Choose one from below", list(mental_health_conditions[sub_category].keys()))
     disorder_description = mental_health_conditions[sub_category][selected_disorder]
     st.write(f"**{selected_disorder}**: {disorder_description}")
 
 elif selected_category == "Psychiatry Medications":
-    medication_category = st.sidebar.selectbox("Choose a Medication Category", list(psychiatry_medications.keys()))
+    medication_category = st.sidebar.selectbox("Choose category of medication", list(psychiatry_medications.keys()))
 
     # Display medications in a dropdown list on the main page
-    selected_medication = st.selectbox(f"Choose a {medication_category} Medication", list(psychiatry_medications[medication_category].keys()))
+    selected_medication = st.selectbox(f"Choose a medication", list(psychiatry_medications[medication_category].keys()))
     medication_description = psychiatry_medications[medication_category][selected_medication]
     st.write(f"**{selected_medication}**: {medication_description}")

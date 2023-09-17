@@ -15,7 +15,7 @@ mental_health_conditions = {
         "Post-Traumatic Stress Disorder (PTSD)": "
     },
     "Trauma & Stress-related Disorders": {
-        "Post-Traumatic Stress Disorder (PTSD)": "A mental health condition that can develop after exposure to a traumatic event, such as abuse, accidents, or violence. Individuals with PTSD may experience distressing symptoms, including flashbacks, nightmares, and severe anxiety related to the trauma. Treatment often involves therapy, particularly trauma-focused therapies like cognitive behavioral therapy (CBT) and eye movement desensitization and reprocessing (EMDR), as well as antidepressant medication to alleviate symptoms and help individuals regain control over their lives.
+        "Post-Traumatic Stress Disorder (PTSD)": "A mental health condition that can develop after exposure to a traumatic event, such as abuse, accidents, or violence. Individuals with PTSD may experience distressing symptoms, including flashbacks, nightmares, and severe anxiety related to the trauma. Treatment often involves therapy, particularly trauma-focused therapies like cognitive behavioral therapy (CBT) and eye movement desensitization and reprocessing (EMDR), as well as antidepressant medication to alleviate symptoms and help individuals regain control over their lives.",
     },
 }
 

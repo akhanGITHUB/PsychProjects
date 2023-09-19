@@ -1,23 +1,22 @@
 import streamlit as st
 import pandas as pd
 import datetime
-import openai
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-# Set your OpenAI GPT-3 API key
-openai.api_key = "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"
+# Load the pretrained GPT-2 model and tokenizer
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
-# Function to generate a coherent sentence using OpenAI GPT-3
+# Function to generate a coherent sentence using GPT-2
 def generate_sentence(mood_score, mood_feeling, reason):
-    prompt = f"My mood today is {mood_score}/10. I feel {mood_feeling} because {reason}."
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=prompt,
-        max_tokens=50,  # Adjust the max tokens as needed
-        n = 1,
-        stop=None,
-        temperature=0.7  # Adjust temperature for creativity
-    )
-    return response.choices[0].text.strip()
+    input_text = f"My mood today is {mood_score}/10. I feel {mood_feeling} because {reason}."
+    input_ids = tokenizer.encode(input_text, return_tensors="pt")
+
+    # Generate text
+    output = model.generate(input_ids, max_length=100, num_return_sequences=1, no_repeat_ngram_size=2, top_k=50, top_p=0.95)
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    
+    return generated_text
 
 # Create or load a DataFrame to store mood journal data
 if 'mood_data' not in st.session_state:
@@ -28,7 +27,7 @@ st.sidebar.title("Virtual Mood Journal")
 selected_page = st.sidebar.radio("Select a Page", ["Mood Journal", "Export Data"])
 
 if selected_page == "Mood Journal":
-    st.title("Virtual Mood Journal")
+    st.title("Mood Journal")
 
     # Get user input for mood journal
     date = st.date_input("Date", datetime.date.today())

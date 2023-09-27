@@ -1,4 +1,4 @@
-import streamlit as st
+import streamli as st
 
 # Define a dictionary with mental health conditions and their descriptions
 mental_health_conditions = {

@@ -1,4 +1,4 @@
-import streamli as st
+import streamlit as st
 
 # Define a dictionary with mental health conditions and their descriptions
 mental_health_conditions = {
@@ -21,13 +21,28 @@ mental_health_conditions = {
 # Define a dictionary with psychiatry medications and their descriptions
 psychiatry_medications = {
     "Antidepressants": {
-        "SSRIs (e.g., Prozac)": "SSRIs are a type of antidepressant that helps increase serotonin levels in the brain.",
-        "SNRIs (e.g., Effexor)": "SNRIs are similar to SSRIs and also increase norepinephrine levels.",
+        "Fluoxetine (Prozac)": "Prozac is an antidepressant medication that falls into the category of selective serotonin reuptake inhibitors (SSRIs). It works by increasing the levels of serotonin in the brain, which is a chemical that helps regulate mood. Doctors often prescribe Prozac to treat conditions like depression, anxiety disorders, and obsessive-compulsive disorder (OCD), helping people feel better and manage their emotions more effectively.",
+        "Escitalopram (Lexapro)": "Lexapro is an antidepressant belonging to the selective serotonin reuptake inhibitor (SSRI) category. It functions by adjusting the levels of serotonin in the brain, a chemical that plays a crucial role in regulating mood. Lexapro is commonly prescribed by healthcare professionals to help individuals with conditions such as depression and generalized anxiety disorder (GAD), assisting them in feeling better and reducing the impact of their emotional symptoms.",
+        "Paroxetine (Paxil)": "Paxil is an antidepressant medication that belongs to the class of selective serotonin reuptake inhibitors (SSRIs). It works by increasing the levels of serotonin in the brain, which helps regulate mood. Doctors commonly prescribe Paxil to treat conditions such as depression, generalized anxiety disorder (GAD), social anxiety disorder (SAD), and post-traumatic stress disorder (PTSD), aiming to alleviate symptoms and improve overall mental well-being.",
+        "Sertraline (Zoloft)": "Zoloft is a type of antidepressant known as a selective serotonin reuptake inhibitor (SSRI). It operates by elevating the levels of serotonin, a brain chemical that influences mood. Doctors frequently recommend Zoloft to manage conditions such as depression, anxiety disorders, and post-traumatic stress disorder (PTSD), aiming to improve emotional well-being and provide relief from distressing symptoms.",
+        "Citalopram (Celexa)": "Celexa is an antidepressant medication classified as a selective serotonin reuptake inhibitor (SSRI). It functions by increasing the levels of serotonin in the brain, a neurotransmitter that influences mood. Medical professionals often prescribe Celexa to manage conditions like depression and anxiety disorders, assisting individuals in feeling better and reducing the impact of their emotional symptoms.",  
+        "Duloxetine (Cymbalta)": "Cymbalta is an antidepressant medication classified as a serotonin-norepinephrine reuptake inhibitor (SNRI). It works by affecting the levels of both serotonin and norepinephrine in the brain, which play essential roles in regulating mood and pain perception. Doctors commonly prescribe Cymbalta to treat conditions such as depression, generalized anxiety disorder (GAD), fibromyalgia, and chronic pain disorders, helping individuals improve their mood and manage physical discomfort.",
+        "Venlaxafine (Effexor)": "Effexor is an antidepressant categorized as a serotonin-norepinephrine reuptake inhibitor (SNRI). It works by increasing the levels of both serotonin and norepinephrine in the brain, two chemicals that affect mood and emotions. Doctors often prescribe Effexor to treat conditions like depression, generalized anxiety disorder (GAD), and social anxiety disorder (SAD), aiming to improve mood and alleviate symptoms of anxiety, providing individuals with a better overall sense of well-being.",
+        "Bupropion (Wellbutrin)": "Wellbutrin is an atypical antidepressant that works by influencing the levels of certain neurotransmitters, particularly dopamine and norepinephrine, in the brain. It's often prescribed to manage conditions like depression and seasonal affective disorder (SAD). Unlike many other antidepressants, Wellbutrin does not primarily target serotonin. It can help improve mood and increase energy levels, making it a valuable option for individuals experiencing these symptoms.",
+        "Mirtazapine (Remeron)": "Remeron is an antidepressant medication that belongs to the class of atypical antidepressants. It works by affecting various neurotransmitters in the brain, including serotonin and norepinephrine. Remeron is often prescribed to treat conditions like depression and is known for its tendency to increase appetite and promote weight gain, which can be helpful for individuals with weight loss or poor appetite due to depression or other conditions. It aims to improve mood and overall well-being.",
+        "Trazadone (Desyrel)": "Desyrel, also known as Trazodone, is an antidepressant medication that possesses unique properties. It primarily affects serotonin levels in the brain, aiding in mood regulation. Additionally, Desyrel has an interesting dual action—it acts as both a serotonin reuptake inhibitor (like many other antidepressants) and an antagonist at the histamine H1 receptor. This histamine-blocking activity can cause drowsiness, which is why Desyrel is sometimes prescribed to manage insomnia. It helps improve mood and can promote better sleep, making it a versatile treatment option for some individuals.",
     },
     "Antipsychotics": {
         "Risperidone": "An antipsychotic used to treat schizophrenia and bipolar disorder.",
         "Quetiapine": "An antipsychotic used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
     },
+}
+
+# Define a dictionary with mental health professionals and their descriptions
+mental_health_Professionals = {
+    "Psychiatrists": "Psychiatrists are medical doctors who specialize in diagnosing and treating mental illnesses. They can prescribe medications and provide therapy.",
+    "Psychologists": "Psychologists are trained to assess and diagnose mental health conditions. They provide therapy and counseling but cannot prescribe medications.",
+    "LSW Counselors/Therapists": "Licensed Social Workers (LSWs) provide counseling and therapy to individuals and families. They can help with various mental health issues and life challenges.",
 }
 
 # Streamlit UI
@@ -54,3 +69,10 @@ elif selected_category == "Psychiatry Medications":
     selected_medication = st.selectbox(f"Choose a medication", list(psychiatry_medications[medication_category].keys()))
     medication_description = psychiatry_medications[medication_category][selected_medication]
     st.write(f"**{selected_medication}**: {medication_description}")
+
+elif selected_category == "Mental Health Professionals":
+    # Display mental health professionals in a dropdown list on the main page
+    selected_professional = st.selectbox("Choose a Mental Health Professional", list(mental_health_team.keys()))
+    professional_description = mental_health_team[selected_professional]
+    st.write(f"**{selected_professional}**: {professional_description}")
+ 

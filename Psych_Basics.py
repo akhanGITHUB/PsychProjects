@@ -30,12 +30,22 @@ psychiatry_medications = {
         "Venlaxafine (Effexor)": "Effexor is an antidepressant categorized as a serotonin-norepinephrine reuptake inhibitor (SNRI). It works by increasing the levels of both serotonin and norepinephrine in the brain, two chemicals that affect mood and emotions. Doctors often prescribe Effexor to treat conditions like depression, generalized anxiety disorder (GAD), and social anxiety disorder (SAD), aiming to improve mood and alleviate symptoms of anxiety, providing individuals with a better overall sense of well-being.",
         "Bupropion (Wellbutrin)": "Wellbutrin is an atypical antidepressant that works by influencing the levels of certain neurotransmitters, particularly dopamine and norepinephrine, in the brain. It's often prescribed to manage conditions like depression and seasonal affective disorder (SAD). Unlike many other antidepressants, Wellbutrin does not primarily target serotonin. It can help improve mood and increase energy levels, making it a valuable option for individuals experiencing these symptoms.",
         "Mirtazapine (Remeron)": "Remeron is an antidepressant medication that belongs to the class of atypical antidepressants. It works by affecting various neurotransmitters in the brain, including serotonin and norepinephrine. Remeron is often prescribed to treat conditions like depression and is known for its tendency to increase appetite and promote weight gain, which can be helpful for individuals with weight loss or poor appetite due to depression or other conditions. It aims to improve mood and overall well-being.",
-        "Trazadone (Desyrel)": "Desyrel, also known as Trazodone, is an antidepressant medication that possesses unique properties. It primarily affects serotonin levels in the brain, aiding in mood regulation. Additionally, Desyrel has an interesting dual action—it acts as both a serotonin reuptake inhibitor (like many other antidepressants) and an antagonist at the histamine H1 receptor. This histamine-blocking activity can cause drowsiness, which is why Desyrel is sometimes prescribed to manage insomnia. It helps improve mood and can promote better sleep, making it a versatile treatment option for some individuals.",
+        "Trazadone (Desyrel)": "Desyrel is an antidepressant medication that primarily affects serotonin levels in the brain, aiding in mood regulation. Additionally, Desyrel acts as both a serotonin reuptake inhibitor (like many other antidepressants) and an antagonist at the histamine H1 receptor. This histamine-blocking activity can cause drowsiness, which is why Desyrel is sometimes prescribed to manage insomnia. It helps improve mood and can promote better sleep, making it a versatile treatment option for some individuals.",
     },
     "Antipsychotics": {
-        "Risperidone": "An antipsychotic used to treat schizophrenia and bipolar disorder.",
-        "Quetiapine": "An antipsychotic used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
+        "Haloperidol (Haldol)":
+        "Risperidone (Risperdal)": "An antipsychotic used to treat schizophrenia and bipolar disorder.",
+        "Quetiapine (Seroquel)": "An antipsychotic used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
+        "Olanzapine (Zyprexa)":
+        "Clozapine (Clozaril)":
+        "Aripiprazole (Abilify)":
+        "Ziprasadone (Geodon)":
     },
+     "Mood-Stabilizers": {
+        "Lithium (Lithobid)": "An antipsychotic used to treat schizophrenia and bipolar disorder.",
+        "Carbamazepine (Tegretol)": "An antipsychotic used to treat schizophrenia, bipolar disorder, and major depressive disorder.",
+        "Lamotrigine (Lamictal)": 
+     },
 }
 
 # Define a dictionary with mental health professionals and their descriptions

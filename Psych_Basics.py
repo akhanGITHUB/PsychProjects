@@ -80,7 +80,7 @@ elif selected_category == "Psychiatry Medications":
     medication_description = psychiatry_medications[medication_category][selected_medication]
     st.write(f"**{selected_medication}**: {medication_description}")
 
-elif selected_category == "Mental Health Professionals":
+elif selected_category == "Mental Health Team":
     # Display mental health professionals in a dropdown list on the main page
     selected_professional = st.selectbox("Choose a Mental Health Professional", list(mental_health_team.keys()))
     professional_description = mental_health_team[selected_professional]

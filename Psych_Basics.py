@@ -49,7 +49,7 @@ psychiatry_medications = {
 }
 
 # Define a dictionary with mental health professionals and their descriptions
-mental_health_Professionals = {
+mental_health_team = {
     "Psychiatrists": "Psychiatrists are medical doctors who specialize in diagnosis, treatment, and prvention of mental illnesses. They prescribe psychiatric medications and provide talk-therapy.",
     "Clinical Psychologists": "Clinical Psychologists are psychologists who specialize in diagnosing and treating mental illness. They primarily provide therapy and counseling, using talk-based treatments as their core approach. They typically cannot prescribe psychiatric medications. Additionally, clinical psychologists often conduct psychological assessments and testing to aid in accurate diagnosis of mental illness.",
     "Licensed Clinical Social Worker (LCSW)": "LCSWs provide talk therapy and counseling to individuals, families, and groups, often with a focus on the social and environmental factors affecting mental health.",

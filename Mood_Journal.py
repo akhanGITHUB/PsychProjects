@@ -2,22 +2,33 @@ import streamlit as st
 import pandas as pd
 import datetime
 import random
+import session_state
 
-# Create a dataframe to store mood journal data
-df = pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation'])
+# Create a session state object to persist data across runs
+state = session_state.get(df_mood=pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation']),
+                          df_cbt=pd.DataFrame(columns=['Negative Thought', 'Based on Facts', 'Evidence', 'Jumping to Conclusions', 'Positive Perspective', 'Advice']))
 
-# Define a function to add entries to the mood journal
-def add_entry(date, mood, feeling, explanation):
-    global df
-    new_entry = pd.DataFrame({'Date': [date], 'Mood': [mood], 'Feeling': [feeling], 'Explanation': [explanation]})
-    df = pd.concat([df, new_entry], ignore_index=True)
+# Define a function to add entries to the Mood Journal
+def add_mood_entry(date, mood, feeling, explanation):
+    new_mood_entry = pd.DataFrame({'Date': [date], 'Mood': [mood], 'Feeling': [feeling], 'Explanation': [explanation]})
+    state.df_mood = pd.concat([state.df_mood, new_mood_entry], ignore_index=True)
+
+# Define a function to add entries to the CBT Journal
+def add_cbt_entry(negative_thought, based_on_facts, evidence, jumping_to_conclusions, positive_perspective, advice):
+    new_cbt_entry = pd.DataFrame({'Negative Thought': [negative_thought],
+                                  'Based on Facts': [based_on_facts],
+                                  'Evidence': [evidence],
+                                  'Jumping to Conclusions': [jumping_to_conclusions],
+                                  'Positive Perspective': [positive_perspective],
+                                  'Advice': [advice]})
+    state.df_cbt = pd.concat([state.df_cbt, new_cbt_entry], ignore_index=True)
 
 # Define the Streamlit app layout
 st.set_page_config(layout="wide")
-st.title('Virtual Mood Journal')
+st.title('Virtual Journal')
 
 # Create a sidebar with page selection
-page = st.sidebar.radio("Select a Page", ["Mood Journal Entry", "Positive Affirmations"])
+page = st.sidebar.selectbox("Select a Page", ["Mood Journal Entry", "Positive Affirmations", "CBT Journal"])
 
 # Mood Journal Entry Page
 if page == "Mood Journal Entry":
@@ -32,38 +43,39 @@ if page == "Mood Journal Entry":
     explanation = st.text_area('Why do you feel that way?', '')
 
     if st.button('Add Entry'):
-        add_entry(date, mood, feelings, explanation)
+        add_mood_entry(date, mood, feelings, explanation)
         st.success('Entry Added!')
 
-    # Export Data
-    st.header('Export Data')
-    if st.button('Export Data as CSV'):
-        if not df.empty:
-            df.to_csv('mood_journal.csv', index=False)
+    # Export Mood Data
+    st.header('Export Mood Data')
+    if st.button('Export Mood Data as CSV'):
+        if not state.df_mood.empty:
+            state.df_mood.to_csv('mood_journal.csv', index=False)
             st.success('Data Exported to mood_journal.csv')
         else:
-            st.warning('No data to export.')
+            st.warning('No mood data to export.')
 
     # Mood Tracking
     st.header('Mood Tracking')
     st.subheader('Visualize Mood Over Time')
-    if not df.empty:
-        mood_chart = st.line_chart(df.set_index('Date')['Mood'])
+
+    if not state.df_mood.empty:
+        mood_chart = st.line_chart(state.df_mood.set_index('Date')['Mood'], use_container_width=True)
     else:
         st.info('Start tracking your mood to see the visualization.')
 
     # Mood Journal Entries
     st.header('Your Mood Journal Entries')
-    if not df.empty:
-        st.dataframe(df)
+    if not state.df_mood.empty:
+        st.dataframe(state.df_mood)
     else:
-        st.info('No entries yet. Add your mood journal entries above.')
+        st.info('No mood entries yet. Add your mood journal entries above.')
 
 # Positive Affirmations Page
 elif page == "Positive Affirmations":
     st.header('Positive Affirmations')
 
-    # List of 200 positive affirmations
+    # List of 50 positive affirmations
     positive_affirmations = [
         "I am worthy of love and respect.",
         "I believe in my abilities.",
@@ -112,11 +124,40 @@ elif page == "Positive Affirmations":
         "I am confident in my physical appearance.",
         "I am capable of achieving my fitness goals.",
         "I am disciplined in taking care of my body.",
-        "I am in harmony with nature.",
-        # Add more affirmations here...
+        "I am in harmony with nature."
     ]
 
     if st.button('Generate a positive affirmation'):
         random_affirmation = random.choice(positive_affirmations)
         st.subheader('Random Positive Affirmation:')
         st.write(random_affirmation)
+
+# CBT Journal Page
+elif page == "CBT Journal":
+    st.header('CBT Journal Entry')
+    negative_thought = st.text_area('What is your negative thought?')
+    based_on_facts = st.text_area('Is this thought based on facts?')
+    evidence = st.text_area('What evidence do you have to support it?')
+    jumping_to_conclusions = st.text_area('Am I jumping to conclusions?')
+    positive_perspective = st.text_area('Is there a more positive perspective on this thought?')
+    advice = st.text_area("What advice would you give a friend in the same situation?")
+
+    if st.button('Add CBT Entry'):
+        add_cbt_entry(negative_thought, based_on_facts, evidence, jumping_to_conclusions, positive_perspective, advice)
+        st.success('CBT Entry Added!')
+
+    # Export CBT Data
+    st.header('Export CBT Data')
+    if st.button('Export CBT Data as CSV'):
+        if not state.df_cbt.empty:
+            state.df_cbt.to_csv('cbt_journal.csv', index=False)
+            st.success('CBT Data Exported to cbt_journal.csv')
+        else:
+            st.warning('No CBT data to export.')
+
+    # CBT Journal Entries
+    st.header('Your CBT Journal Entries')
+    if not state.df_cbt.empty:
+        st.dataframe(state.df_cbt)
+    else:
+        st.info('No CBT entries yet. Add your CBT journal entries above.')

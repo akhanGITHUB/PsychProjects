@@ -1,4 +1,4 @@
-import streamli as st
+import streamlit as st
 import pandas as pd
 import datetime
 import random
@@ -9,7 +9,8 @@ df = pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation'])
 # Define a function to add entries to the mood journal
 def add_entry(date, mood, feeling, explanation):
     global df
-    df = df.append({'Date': date, 'Mood': mood, 'Feeling': feeling, 'Explanation': explanation}, ignore_index=True)
+    new_entry = pd.DataFrame({'Date': [date], 'Mood': [mood], 'Feeling': [feeling], 'Explanation': [explanation]})
+    df = pd.concat([df, new_entry], ignore_index=True)
 
 # Define the Streamlit app layout
 st.set_page_config(layout="wide")

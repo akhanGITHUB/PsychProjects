@@ -2,11 +2,15 @@ import streamlit as st
 import pandas as pd
 import datetime
 import random
-import session_state
+
+# Define a class for session state management
+class SessionState:
+    def __init__(self):
+        self.df_mood = pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation'])
+        self.df_cbt = pd.DataFrame(columns=['Negative Thought', 'Based on Facts', 'Evidence', 'Jumping to Conclusions', 'Positive Perspective', 'Advice'])
 
 # Create a session state object to persist data across runs
-state = session_state.get(df_mood=pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation']),
-                          df_cbt=pd.DataFrame(columns=['Negative Thought', 'Based on Facts', 'Evidence', 'Jumping to Conclusions', 'Positive Perspective', 'Advice']))
+state = SessionState()
 
 # Define a function to add entries to the Mood Journal
 def add_mood_entry(date, mood, feeling, explanation):

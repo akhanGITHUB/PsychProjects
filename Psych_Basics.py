@@ -59,7 +59,7 @@ mental_health_team = {
 st.title("Mental Health Information App")
 
 # Sidebar navigation
-selected_category = st.sidebar.selectbox("Choose a Category", ["Home", "Mental Health Conditions", "Psychiatry Medications"])
+selected_category = st.sidebar.selectbox("Choose a Category", ["Home", "Mental Health Conditions", "Psychiatry Medications", "Mental Health Team"])
 
 if selected_category == "Home":
     st.write("Welcome to the Mental Health Information App!")

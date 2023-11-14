@@ -4,7 +4,7 @@ import datetime
 import random
 
 # Define a class for session state management
-class SessionState:
+clas SessionState:
     def __init__(self):
         self.df_mood = pd.DataFrame(columns=['Date', 'Mood', 'Feeling', 'Explanation'])
         self.df_cbt = pd.DataFrame(columns=['Negative Thought', 'Based on Facts', 'Evidence', 'Jumping to Conclusions', 'Positive Perspective', 'Advice'])
